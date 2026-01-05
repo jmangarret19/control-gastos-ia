@@ -173,14 +173,40 @@ npm run build
 
 ## 📝 Environment Variables
 
-### Frontend (Vercel)
-- `VITE_API_URL`: Backend API URL
+The application requires different environment variables depending on the environment.
 
-### Backend (Render)
-- `DATABASE_URL`: PostgreSQL connection string
-- `JWT_SECRET`: Secret key for JWT
-- `PORT`: Server port (auto-set by Render)
-- `NODE_ENV`: production
+### 🏠 Local Development
+Configured in `.env` files within each app folder.
+
+**Backend** (`apps/api/.env`):
+```env
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="your-local-secret-key"
+PORT=3000
+NODE_ENV="development"
+```
+
+**Frontend** (`apps/web/.env`):
+```env
+VITE_API_URL="http://localhost:3000"
+```
+
+### 🌍 Production (Cloud)
+Set these in the **Render** and **Vercel** dashboards.
+
+**Backend (Render Settings)**:
+```env
+DATABASE_URL="postgresql://user:password@ep-xxx-xxx.neon.tech/neondb?sslmode=require"
+JWT_SECRET="your-secure-production-random-string"
+NODE_ENV="production"
+```
+
+**Frontend (Vercel Settings)**:
+```env
+VITE_API_URL="https://your-api-name.onrender.com/api"
+```
+
+---
 
 ## 🤝 Contributing
 
