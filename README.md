@@ -54,25 +54,26 @@ A full-stack expense tracking application with multi-theme support and internati
    npm install
    ```
 
-3. **Setup environment variables**:
-   
-   **Backend** (`apps/api/.env`):
-   ```env
-   DATABASE_URL="file:./dev.db"
-   JWT_SECRET="your-secret-key"
-   PORT=3000
-   NODE_ENV="development"
-   ```
-   
-   **Frontend** (`apps/web/.env`):
-   ```env
-   VITE_API_URL=http://localhost:3000
-   ```
+3. **Configure Database (Local)**:
+   By default, the project is configured for **PostgreSQL** (Production). For local development with **SQLite**:
+   - Open `apps/api/prisma/schema.prisma`
+   - Change `provider = "postgresql"` to `provider = "sqlite"`
+   - Update `apps/api/.env`:
+     ```env
+     DATABASE_URL="file:./dev.db"
+     JWT_SECRET="your-secret-key"
+     PORT=3000
+     NODE_ENV="development"
+     ```
+   - Update `apps/web/.env`:
+     ```env
+     VITE_API_URL=http://localhost:3000
+     ```
 
 4. **Initialize database**:
    ```bash
    cd apps/api
-   npx prisma migrate dev
+   npx prisma migrate dev --name init
    npx prisma generate
    cd ../..
    ```
@@ -140,11 +141,23 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Quick Deploy
 
-1. **Database**: Create a PostgreSQL database on [Neon](https://neon.tech)
-2. **Backend**: Deploy to [Render](https://render.com) using `render.yaml`
-3. **Frontend**: Deploy to [Vercel](https://vercel.com) using `vercel.json`
+1. **Database (Neon)**: 
+   - Create a PostgreSQL database at [neon.tech](https://neon.tech).
+   - Copy the connection string (with `?sslmode=require`).
 
-All platforms offer generous free tiers!
+2. **Backend (Render)**: 
+   - Deploy as a **Web Service**.
+   - Use `render.yaml` (Blueprint) or manual config:
+     - **Build**: `cd apps/api && npm install && npx prisma generate && npm run build`
+     - **Start**: `cd apps/api && npx prisma db push && npm start`
+     - **Env**: `DATABASE_URL` (Neon), `JWT_SECRET`, `NODE_ENV=production`.
+
+3. **Frontend (Vercel)**: 
+   - Deploy with **Vite** preset.
+   - **Root Directory**: `apps/web`.
+   - **Env**: `VITE_API_URL` (pointing to your Render API URL + `/api`).
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for a full guide.
 
 ## 🧪 Testing
 
