@@ -5,7 +5,7 @@ A full-stack expense tracking application with multi-theme support and internati
 ## 🚀 Live Demo
 
 - **Frontend**: [https://control-gastos-ia.vercel.app](https://control-gastos-ia.vercel.app)
-- **Backend API**: [https://control-gastos-api.onrender.com/api](https://control-gastos-api.onrender.com/api)
+- **Backend API**: [https://control-gastos-ia.onrender.com/api](https://control-gastos-ia.onrender.com/api)
 - **Repo**: [https://github.com/jmangarret19/control-gastos-ia](https://github.com/jmangarret19/control-gastos-ia)
 
 ## ✨ Features

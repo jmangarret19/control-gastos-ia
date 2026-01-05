@@ -211,7 +211,7 @@ Once deployed, test:
 |---------|-----|--------|
 | **GitHub** | https://github.com/jmangarret19/control-gastos-ia | ✅ Active |
 | **Frontend (Vercel)** | https://control-gastos-ia.vercel.app | ✅ Active |
-| **Backend (Render)** | https://control-gastos-api.onrender.com | ✅ Active |
+| **Backend (Render)** | https://control-gastos-ia.onrender.com | ✅ Active |
 | **Database (Neon)** | https://console.neon.tech (PostgreSQL) | ✅ Active |
 
 
