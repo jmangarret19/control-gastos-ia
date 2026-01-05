@@ -1,33 +1,83 @@
 # Task Checklist - Expense Tracker App
 
 ## Initialization
-- [x] Initialize Monorepo Structure (`apps/api`, `apps/web`) <!-- id: 0 -->
-- [x] Configure Top-level `package.json` and tooling <!-- id: 1 -->
+- [x] Initialize Monorepo Structure (`apps/api`, `apps/web`)
+- [x] Configure Top-level `package.json` and tooling
 
 ## Backend (API)
-- [x] Initialize `apps/api` (Node, TypeScript, Express) <!-- id: 2 -->
-- [x] Setup Prisma ORM & Database Schema (SQLite) <!-- id: 3 -->
-- [x] Implement Clean Architecture Structure (Controllers, Services, Repositories) <!-- id: 4 -->
-- [x] Implement Authentication (Register/Login, JWT) <!-- id: 5 -->
-- [x] Implement Expenses CRUD <!-- id: 6 -->
-- [x] Add Dockerfile for API <!-- id: 7 -->
+- [x] Initialize `apps/api` (Node, TypeScript, Express)
+- [x] Setup Prisma ORM & Database Schema (SQLite)
+- [x] Implement Clean Architecture Structure
+- [x] Implement Authentication (Register/Login, JWT)
+- [x] Implement Expenses CRUD
+- [x] Add Dockerfile for API
 
 ## Frontend (Web)
-- [x] Initialize `apps/web` (Vite, React, TypeScript) <!-- id: 8 -->
-- [x] Setup Tailwind CSS & Design System <!-- id: 9 -->
-- [x] Implement API Client (Axios/Fetch) & Auth Context <!-- id: 10 -->
-- [x] Create Auth Pages (Login/Register) <!-- id: 11 -->
-- [x] Create Dashboard & Expense Management UI (Responsive) <!-- id: 12 -->
-- [x] Add Dockerfile for Web <!-- id: 13 -->
+- [x] Initialize `apps/web` (Vite, React, TypeScript)
+- [x] Setup Tailwind CSS & Design System
+- [x] Implement API Client & Auth Context
+- [x] Create Auth Pages (Login/Register)
+- [x] Create Dashboard & Expense Management UI
+- [x] Add Dockerfile for Web
 
 ## DevOps & Finalization
-- [x] Create `docker-compose.yml` for local development <!-- id: 14 -->
-- [x] Create GitHub Actions CI workflow <!-- id: 15 -->
-- [x] Verification & Manual Testing Guide (Walkthrough) <!-- id: 16 -->
+- [x] Create `docker-compose.yml` for local development
+- [x] Create GitHub Actions CI workflow
+- [x] Verification & Manual Testing Guide
 
 ## Frontend Enhancements (i18n & Theming)
-- [ ] Install & Configure i18n (react-i18next) <!-- id: 17 -->
-- [ ] Implement Translation Files (ES/EN) <!-- id: 18 -->
-- [ ] Implement Theme Context (Dark/Light) & Toggle <!-- id: 19 -->
-- [ ] Enhance UI Components (Inputs, Buttons, Colors) <!-- id: 20 -->
+- [x] Install & Configure i18n (react-i18next)
+- [x] Implement Translation Files (ES/EN)
+- [x] Implement Theme Context & 6 Themes
+- [x] Enhance UI Components (Inputs, Buttons, Colors)
 
+## Fixes & New Features
+- [x] Debug & Fix Light Mode Issue
+- [x] Implement Dashboard Summary (Totals)
+- [x] Add Theme Selector UI
+
+## Production Deployment
+- [x] Migrate from SQLite to PostgreSQL
+- [x] Create deployment configuration files
+- [x] Setup GitHub repository
+- [x] Configure Vercel (Frontend)
+- [x] Configure Render (Backend)
+- [x] Setup Neon PostgreSQL
+- [x] Create deployment documentation
+
+---
+
+## 🚀 Future Roadmap (Suggested Features)
+
+### 1. 📊 Visualización de Datos
+Implementar gráficos interactivos (Recharts o Chart.js) para visualizar:
+- Gasto por categoría.
+- Tendencia de gastos mensual.
+- Comparativa de meses.
+
+### 2. 🏷️ Categorías y Etiquetas
+- Permitir al usuario crear categorías personalizadas.
+- Asignar iconos y colores a cada categoría.
+- Filtrar la lista de gastos por etiquetas.
+
+### 3. 🎯 Presupuestos (Budgets)
+- Establecer un presupuesto máximo por mes o por categoría.
+- Barra de progreso que muestre cuánto del presupuesto se ha consumido.
+- Notificaciones cuando se supere el 80% o 100% del presupuesto.
+
+### 4. 📄 Exportación de Datos
+- Botón para exportar todos los registros a un archivo **CSV** (Excel).
+- Generación de reportes mensuales en **PDF** con gráficos.
+
+### 5. 🔁 Gastos Recurrentes
+- Crear gastos que se repitan automáticamente cada semana o mes (ej: Alquiler, Netlix).
+- Marcador de "Pendiente" o "Pagado" para estos gastos.
+
+### 6. 📸 Recibos y Archivos
+- Poder subir una foto del ticket o recibo al crear un gasto.
+- Integración con servicios de almacenamiento (Cloudinary o Firebase Storage).
+
+### 7. 🔍 Búsqueda y Filtros Avanzados
+- Buscador por texto en la descripción.
+- Filtro por rango de fechas exacto.
+- Ordenamiento por precio (mayor/menor).
