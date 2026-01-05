@@ -210,9 +210,9 @@ Once deployed, test:
 | Service | URL | Status |
 |---------|-----|--------|
 | **GitHub** | https://github.com/jmangarret19/control-gastos-ia | ✅ Active |
-| **Frontend (Vercel)** | `https://control-gastos-ia.vercel.app` | ⏳ Pending |
-| **Backend (Render)** | `https://control-gastos-api.onrender.com` | ⏳ Pending |
-| **Database (Neon)** | PostgreSQL serverless | ⏳ Pending |
+| **Frontend (Vercel)** | https://control-gastos-ia.vercel.app | ✅ Active |
+| **Backend (Render)** | https://control-gastos-api.onrender.com | ✅ Active |
+| **Database (Neon)** | https://console.neon.tech (PostgreSQL) | ✅ Active |
 
 **Note**: Update URLs above once deployed.
 
