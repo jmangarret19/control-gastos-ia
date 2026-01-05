@@ -1,0 +1,188 @@
+# 💰 Expense Tracker
+
+A full-stack expense tracking application with multi-theme support and internationalization (i18n).
+
+## ✨ Features
+
+- 📊 **Expense Management**: Create, view, and delete expenses
+- 🎨 **6 Beautiful Themes**: Light, Dark, Midnight, Forest, Sunset, Ocean
+- 🌍 **Multi-language**: Spanish and English support
+- 🔐 **Authentication**: Secure JWT-based auth
+- 📱 **Responsive Design**: Works on all devices
+- 💾 **Dashboard Summary**: Track total expenses and amounts
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React** with **TypeScript**  
+- **Vite** for blazing-fast builds
+- **Tailwind CSS** with CSS Variables for theming
+- **React Router** for navigation
+- **i18next** for internationalization
+- **Axios** for API requests
+
+### Backend
+- **Node.js** with **Express**
+- **TypeScript** for type safety
+- **Prisma ORM** with **PostgreSQL**
+- **JWT** for authentication
+- **bcryptjs** for password hashing
+
+### DevOps
+- **Docker** support
+- **GitHub Actions** CI/CD
+- **Vercel** (Frontend deployment)
+- **Render** (Backend deployment)
+- **Neon** (PostgreSQL database)
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/expense-tracker.git
+   cd expense-tracker
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Setup environment variables**:
+   
+   **Backend** (`apps/api/.env`):
+   ```env
+   DATABASE_URL="file:./dev.db"
+   JWT_SECRET="your-secret-key"
+   PORT=3000
+   NODE_ENV="development"
+   ```
+   
+   **Frontend** (`apps/web/.env`):
+   ```env
+   VITE_API_URL=http://localhost:3000
+   ```
+
+4. **Initialize database**:
+   ```bash
+   cd apps/api
+   npx prisma migrate dev
+   npx prisma generate
+   cd ../..
+   ```
+
+5. **Start development servers**:
+   
+   Terminal 1 (Backend):
+   ```bash
+   cd apps/api
+   npm run dev
+   ```
+   
+   Terminal 2 (Frontend):
+   ```bash
+   cd apps/web
+   npm run dev
+   ```
+
+6. **Open the app**: Visit `http://localhost:5173`
+
+## 🎨 Themes
+
+Choose from 6 carefully crafted themes:
+
+| Theme      | Description                    |
+|------------|--------------------------------|
+| Light      | Clean white/gray palette       |
+| Dark       | Modern dark gray               |
+| Midnight   | Deep blue slate tones          |
+| Forest     | Soft green and earth tones     |
+| Sunset     | Warm orange and cream          |
+| Ocean      | Refreshing cyan and aqua       |
+
+## 🌐 Internationalization
+
+Switch between languages on the fly:
+- 🇪🇸 Spanish (default)
+- 🇬🇧 English
+
+## 📦 Project Structure
+
+```
+expense-tracker/
+├── apps/
+│   ├── api/              # Backend (Express + Prisma)
+│   │   ├── src/
+│   │   ├── prisma/
+│   │   └── package.json
+│   └── web/              # Frontend (React + Vite)
+│       ├── src/
+│       │   ├── components/
+│       │   ├── context/
+│       │   ├── pages/
+│       │   ├── services/
+│       │   └── i18n/
+│       └── package.json
+├── vercel.json           # Vercel config
+├── render.yaml           # Render config
+└── DEPLOYMENT.md         # Deployment guide
+```
+
+## 🌍 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy
+
+1. **Database**: Create a PostgreSQL database on [Neon](https://neon.tech)
+2. **Backend**: Deploy to [Render](https://render.com) using `render.yaml`
+3. **Frontend**: Deploy to [Vercel](https://vercel.com) using `vercel.json`
+
+All platforms offer generous free tiers!
+
+## 🧪 Testing
+
+```bash
+# Run frontend build
+cd apps/web
+npm run build
+
+# Run backend build
+cd apps/api
+npm run build
+```
+
+## 📝 Environment Variables
+
+### Frontend (Vercel)
+- `VITE_API_URL`: Backend API URL
+
+### Backend (Render)
+- `DATABASE_URL`: PostgreSQL connection string
+- `JWT_SECRET`: Secret key for JWT
+- `PORT`: Server port (auto-set by Render)
+- `NODE_ENV`: production
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ using modern web technologies
+- Inspired by real-world expense tracking needs
+- Designed with user experience in mind
+
+---
+
+**Made by [Your Name]** | [Live Demo](https://your-app.vercel.app)

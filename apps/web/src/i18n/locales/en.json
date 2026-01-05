@@ -1,0 +1,35 @@
+{
+    "common": {
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "email": "Email",
+        "password": "Password",
+        "name": "Name",
+        "submit": "Submit",
+        "add": "Add",
+        "delete": "Delete",
+        "required": "Required",
+        "welcome": "Welcome, {{name}}",
+        "loading": "Loading..."
+    },
+    "dashboard": {
+        "title": "Expense Tracker",
+        "addExpense": "Add New Expense",
+        "yourExpenses": "Your Expenses",
+        "description": "Description",
+        "amount": "Amount",
+        "date": "Date",
+        "noExpenses": "No expenses recorded yet.",
+        "action": "Action",
+        "confirmDelete": "Are you sure?",
+        "totalExpenses": "Total Expenses",
+        "totalAmount": "Total Amount"
+    },
+    "auth": {
+        "noAccount": "Don't have an account?",
+        "haveAccount": "Already have an account?",
+        "loginSuccess": "Login successful",
+        "registerSuccess": "Registration successful"
+    }
+}

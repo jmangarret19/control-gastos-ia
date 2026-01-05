@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DEFAULT LIGHT */
+    --bg-base: #ffffff;
+    --bg-card: #ffffff;
+    --text-base: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --primary: #2563eb;
+    --primary-fg: #ffffff;
+  }
+
+  [data-theme='dark'] {
+    --bg-base: #111827;
+    --bg-card: #1f2937;
+    --text-base: #f9fafb;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+    --primary: #3b82f6;
+    --primary-fg: #ffffff;
+  }
+
+  [data-theme='midnight'] {
+    --bg-base: #0f172a;
+    /* Slate 900 */
+    --bg-card: #1e293b;
+    /* Slate 800 */
+    --text-base: #f8fafc;
+    /* Slate 50 */
+    --text-muted: #94a3b8;
+    /* Slate 400 */
+    --border-color: #334155;
+    --primary: #818cf8;
+    /* Indigo 400 */
+    --primary-fg: #ffffff;
+  }
+
+  [data-theme='forest'] {
+    --bg-base: #f0fdf4;
+    /* Green 50 */
+    --bg-card: #ffffff;
+    --text-base: #14532d;
+    /* Green 900 */
+    --text-muted: #4d7c0f;
+    /* Lime 700 */
+    --border-color: #bbf7d0;
+    /* Green 200 */
+    --primary: #15803d;
+    /* Green 700 */
+    --primary-fg: #ffffff;
+  }
+
+  [data-theme='sunset'] {
+    --bg-base: #fff7ed;
+    /* Orange 50 */
+    --bg-card: #ffffff;
+    --text-base: #7c2d12;
+    /* Orange 900 */
+    --text-muted: #ea580c;
+    /* Orange 600 */
+    --border-color: #fed7aa;
+    /* Orange 200 */
+    --primary: #ea580c;
+    /* Orange 600 */
+    --primary-fg: #ffffff;
+  }
+
+  [data-theme='ocean'] {
+    --bg-base: #ecfeff;
+    /* Cyan 50 */
+    --bg-card: #ffffff;
+    --text-base: #164e63;
+    /* Cyan 900 */
+    --text-muted: #0891b2;
+    /* Cyan 600 */
+    --border-color: #a5f3fc;
+    /* Cyan 200 */
+    --primary: #06b6d4;
+    /* Cyan 500 */
+    --primary-fg: #ffffff;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}

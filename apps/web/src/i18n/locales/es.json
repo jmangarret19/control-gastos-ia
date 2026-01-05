@@ -1,0 +1,35 @@
+{
+    "common": {
+        "login": "Iniciar Sesión",
+        "register": "Registrarse",
+        "logout": "Cerrar Sesión",
+        "email": "Correo Electrónico",
+        "password": "Contraseña",
+        "name": "Nombre",
+        "submit": "Enviar",
+        "add": "Agregar",
+        "delete": "Eliminar",
+        "required": "Requerido",
+        "welcome": "Bienvenido, {{name}}",
+        "loading": "Cargando..."
+    },
+    "dashboard": {
+        "title": "Control de Gastos",
+        "addExpense": "Agregar Nuevo Gasto",
+        "yourExpenses": "Tus Gastos",
+        "description": "Descripción",
+        "amount": "Monto",
+        "date": "Fecha",
+        "noExpenses": "No hay gastos registrados.",
+        "action": "Acción",
+        "confirmDelete": "¿Estás seguro?",
+        "totalExpenses": "Total de Gastos",
+        "totalAmount": "Monto Total"
+    },
+    "auth": {
+        "noAccount": "¿No tienes una cuenta?",
+        "haveAccount": "¿Ya tienes una cuenta?",
+        "loginSuccess": "Inicio de sesión exitoso",
+        "registerSuccess": "Registro exitoso"
+    }
+}

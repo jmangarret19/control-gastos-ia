@@ -1,0 +1,37 @@
+name: CI using Docker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Generate Prisma Client
+      run: npx prisma generate
+      working-directory: apps/api
+
+    - name: Build API
+      run: npm run build
+      working-directory: apps/api
+
+    - name: Build Web
+      run: npm run build
+      working-directory: apps/web
+
+    - name: Build Docker Images
+      run: docker-compose build
