@@ -214,7 +214,8 @@ Once deployed, test:
 | **Backend (Render)** | https://control-gastos-api.onrender.com | ✅ Active |
 | **Database (Neon)** | https://console.neon.tech (PostgreSQL) | ✅ Active |
 
-**Note**: Update URLs above once deployed.
+
+---
 
 ---
 
