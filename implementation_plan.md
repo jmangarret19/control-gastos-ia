@@ -120,13 +120,13 @@ Configuración del workspace npm/pnpm.
      ```
    - **Start Command**:
      ```bash
-     cd apps/api && npx prisma migrate deploy && npm start
+     cd apps/api && npx prisma db push && npm start
      ```
 
 6. **Environment Variables** (click "Advanced"):
    | Variable | Value |
    |----------|-------|
-   | `DATABASE_URL` | Neon connection string from Step 1 |
+   | `DATABASE_URL` | Neon connection string with `?sslmode=require` |
    | `JWT_SECRET` | Random string (use: `openssl rand -base64 32`) |
    | `NODE_ENV` | `production` |
 
@@ -198,8 +198,9 @@ Once deployed, test:
 - Ensure backend URL doesn't end with `/`
 
 **Database Issues**:
+- **Error `table public.User does not exist`**: Change Start Command to `npx prisma db push`.
 - Confirm Neon project is active
-- Check connection string permissions
+- Check connection string permissions (SSL mode required)
 - Verify PostgreSQL version compatibility
 
 ---
@@ -227,3 +228,20 @@ git push origin main
 ```
 
 Both Vercel and Render will auto-deploy changes from `main` branch.
+
+---
+
+## 🚀 Future Roadmap
+
+### 📊 Phase 4: Data & Analytics
+- **Visualización de Datos**: Gráficos de torta y barras (Recharts) para gastos por categoría.
+- **Categorías & Etiquetas**: Clasificación personalizada con iconos y colores.
+
+### 🎯 Phase 5: Personal Finance Tools
+- **Presupuestos (Budgets)**: Establecer límites mensuales y alertas de consumo.
+- **Gastos Recurrentes**: Automatización de suscripciones y facturas fijas.
+
+### 📄 Phase 6: Reporting & Utility
+- **Exportación de Datos**: Descarga de reportes en CSV y PDF.
+- **Búsqueda Avanzada**: Filtros potentes por rango de fechas y descripción.
+- **Adjuntar Recibos**: Subida de imágenes de comprobantes.
