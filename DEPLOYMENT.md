@@ -89,7 +89,7 @@ This guide will walk you through deploying the Expense Tracker application to pr
      ```
    - **Start Command**:
      ```
-     cd apps/api && npx prisma migrate deploy && npm start
+     cd apps/api && npx prisma db push && npm start
      ```
 5. Set **Environment Variables**:
    - `DATABASE_URL`: Paste Neon connection string
