@@ -71,3 +71,159 @@ Configuración del workspace npm/pnpm.
 - Registrar un usuario.
 - Crear, editar y listar gastos.
 - Verificar vista móvil en el navegador.
+
+---
+
+## 🚀 Deployment Instructions (Step-by-Step)
+
+### Repository Information
+- **GitHub URL**: https://github.com/jmangarret19/control-gastos-ia
+- **Status**: ✅ Code pushed to main branch
+
+### 1️⃣ Neon PostgreSQL Setup
+
+**Platform**: https://console.neon.tech
+
+**Steps**:
+1. Create account / Login
+2. Click **"New Project"**
+3. Project Name: `control-gastos-db`
+4. Region: Select closest (e.g., US East - Ohio)
+5. Click **"Create Project"**
+6. **Copy Connection String** (format):
+   ```
+   postgresql://username:password@ep-xxx.neon.tech/neondb?sslmode=require
+   ```
+7. ⚠️ Save this for Render configuration
+
+**Free Tier**: 0.5GB storage, 3GB transfer/month
+
+---
+
+### 2️⃣ Render Backend Deployment
+
+**Platform**: https://dashboard.render.com
+
+**Steps**:
+1. Create account / Login
+2. Click **"New +"** → **"Web Service"**
+3. Connect GitHub account
+4. Select repository: `control-gastos-ia`
+5. Configuration:
+   - **Name**: `control-gastos-api`
+   - **Region**: Oregon (Free)
+   - **Branch**: `main`
+   - **Root Directory**: (leave empty)
+   - **Build Command**:
+     ```bash
+     cd apps/api && npm install && npx prisma generate && npm run build
+     ```
+   - **Start Command**:
+     ```bash
+     cd apps/api && npx prisma migrate deploy && npm start
+     ```
+
+6. **Environment Variables** (click "Advanced"):
+   | Variable | Value |
+   |----------|-------|
+   | `DATABASE_URL` | Neon connection string from Step 1 |
+   | `JWT_SECRET` | Random string (use: `openssl rand -base64 32`) |
+   | `NODE_ENV` | `production` |
+
+7. Select **Free** plan
+8. Click **"Create Web Service"**
+9. ⏳ Wait 3-5 minutes for deployment
+10. **Copy Backend URL** (e.g., `https://control-gastos-api.onrender.com`)
+
+**Free Tier**: Spins down after 15 min inactivity, auto-deploys on git push
+
+---
+
+### 3️⃣ Vercel Frontend Deployment
+
+**Platform**: https://vercel.com/new
+
+**Steps**:
+1. Login with GitHub
+2. Click **"Import Project"**
+3. Select: `control-gastos-ia`
+4. Click **"Import"**
+5. Configuration:
+   - **Framework Preset**: Vite (auto-detected)
+   - **Root Directory**: `apps/web`
+   - **Build Command**: `npm run build` (auto-filled)
+   - **Output Directory**: `dist` (auto-filled)
+
+6. **Environment Variables**:
+   - Click "Environment Variables"
+   - Add:
+     | Name | Value |
+     |------|-------|
+     | `VITE_API_URL` | Backend URL from Step 2 (Render) |
+
+7. Click **"Deploy"**
+8. ⏳ Wait 1-2 minutes
+9. **Copy Frontend URL** (e.g., `https://control-gastos-ia.vercel.app`)
+
+**Free Tier**: 100GB bandwidth/month, auto-deploys on git push
+
+---
+
+### 4️⃣ Verification Checklist
+
+Once deployed, test:
+- [ ] Open Vercel URL
+- [ ] Register new account
+- [ ] Login with credentials
+- [ ] Add expense
+- [ ] View expense in list
+- [ ] Delete expense
+- [ ] Test all 6 themes (Light, Dark, Midnight, Forest, Sunset, Ocean)
+- [ ] Switch language (ES ↔ EN)
+- [ ] Check dashboard totals
+- [ ] Logout and login again
+
+---
+
+### 🔧 Troubleshooting
+
+**Backend Issues**:
+- Check Render logs for errors
+- Verify `DATABASE_URL` format includes `?sslmode=require`
+- Ensure migrations ran (look for `prisma migrate deploy` in logs)
+
+**Frontend Issues**:
+- Verify `VITE_API_URL` in Vercel dashboard
+- Check browser console for CORS errors
+- Ensure backend URL doesn't end with `/`
+
+**Database Issues**:
+- Confirm Neon project is active
+- Check connection string permissions
+- Verify PostgreSQL version compatibility
+
+---
+
+### 📝 Deployment URLs Summary
+
+| Service | URL | Status |
+|---------|-----|--------|
+| **GitHub** | https://github.com/jmangarret19/control-gastos-ia | ✅ Active |
+| **Frontend (Vercel)** | `https://control-gastos-ia.vercel.app` | ⏳ Pending |
+| **Backend (Render)** | `https://control-gastos-api.onrender.com` | ⏳ Pending |
+| **Database (Neon)** | PostgreSQL serverless | ⏳ Pending |
+
+**Note**: Update URLs above once deployed.
+
+---
+
+### 🔄 Future Updates
+
+After initial deployment, updates are automatic:
+```bash
+git add .
+git commit -m "Your changes"
+git push origin main
+```
+
+Both Vercel and Render will auto-deploy changes from `main` branch.

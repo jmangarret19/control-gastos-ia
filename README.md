@@ -45,8 +45,8 @@ A full-stack expense tracking application with multi-theme support and internati
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/expense-tracker.git
-   cd expense-tracker
+   git clone https://github.com/jmangarret19/control-gastos-ia.git
+   cd control-gastos-ia
    ```
 
 2. **Install dependencies**:
@@ -185,4 +185,4 @@ This project is licensed under the MIT License.
 
 ---
 
-**Made by [Your Name]** | [Live Demo](https://your-app.vercel.app)
+**Made by jmangarret19** | [GitHub Repo](https://github.com/jmangarret19/control-gastos-ia)
