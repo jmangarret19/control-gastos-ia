@@ -118,7 +118,7 @@ This guide will walk you through deploying the Expense Tracker application to pr
    - **Output Directory**: `dist`
 5. Add **Environment Variable**:
    - **Name**: `VITE_API_URL`
-   - **Value**: Your Render backend URL from Step 3 (e.g., `https://expense-tracker-api.onrender.com`)
+   - **Value**: Your Render backend URL + `/api` (e.g., `https://expense-tracker-api.onrender.com/api`)
 6. Click **"Deploy"**
 
 ### Wait for Deployment
