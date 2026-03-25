@@ -1,0 +1,55 @@
+name: Construir App iOS
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: 
+
+jobs:
+  build_ios:
+    # IMPORTANTE: Obligado usar macos para tener Xcode
+    runs-on: macos-latest
+
+    steps:
+      - name: 📥 Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Instalar dependencias del frontend
+        working-directory: ./apps/web
+        run: npm install
+
+      - name: 🏗️ Compilar la app web (Vite)
+        working-directory: ./apps/web
+        run: npm run build
+
+      # Como en los pasos anteriores no añadimos iOS, lo instalamos aquí:
+      - name: 🍎 Añadir dependencias de iOS a Capacitor
+        working-directory: ./apps/web
+        run: npm install @capacitor/ios && npx cap add ios
+
+      - name: 🔄 Sincronizar recursos web a la carpeta nativa
+        working-directory: ./apps/web
+        run: npx cap sync ios
+      
+      - name: 🔧 Instalar dependencias nativas de iOS (Pod install)
+        working-directory: ./apps/web/ios/App
+        run: pod install
+
+      # Este paso compila el código nativo PERO apaga la firma de seguridad (CODE_SIGN_IDENTITY="")
+      # El resultado será una carpeta `.app` de Mac, pero no un `.ipa` directo para iPhone.
+      - name: 🚀 Construir el proyecto en Xcode (Sin firmar)
+        working-directory: ./apps/web/ios/App
+        run: |
+          xcodebuild clean build \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
