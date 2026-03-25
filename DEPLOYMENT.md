@@ -252,6 +252,23 @@ If you encounter issues:
 
 The project includes an automated setup to build the web application into native Android and iOS apps using **Capacitor** and **GitHub Actions**.
 
+### Local Mobile Development (Capacitor CLI)
+If you want to compile and run the mobile applications locally on your machine, you must use the Capacitor CLI inside the `apps/web` directory:
+
+```bash
+cd apps/web
+
+# 1. Build the web application (required before syncing)
+npm run build
+
+# 2. Sync the web code and plugins to native platforms
+npx cap sync
+
+# 3. Open the native IDE to run on a simulator or physical device
+npx cap open android   # Opens Android Studio
+npx cap open ios       # Opens Xcode (Mac only)
+```
+
 ### Android APK Generation
 1. Any push to `main` branch or manual trigger of the **Generar APK de Android** workflow will build the app.
 2. Go to the "Actions" tab in GitHub.
