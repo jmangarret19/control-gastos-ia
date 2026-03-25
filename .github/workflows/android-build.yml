@@ -1,0 +1,53 @@
+name: Generar APK de Android
+
+# Esto hace que se ejecute cada vez que subas cambios, 
+# y también te permite ejecutarlo con un botón manualmente.
+on:
+  push:
+    branches: [ "main" ] 
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # GitHub usa un servidor Linux (es más rápido)
+
+    steps:
+      - name: 📥 Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js (Para Vite y Capacitor)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Usa la versión de Node de tu PC
+
+      - name: 📦 Instalar dependencias del frontend
+        working-directory: ./apps/web
+        run: npm install
+
+      - name: 🏗️ Compilar la app web (Vite)
+        working-directory: ./apps/web
+        run: npm run build
+
+      - name: 🔄 Sincronizar recursos con Capacitor
+        working-directory: ./apps/web
+        run: npx cap sync android
+
+      - name: ☕ Configurar Java (Requerido por Android)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: 🔑 Dar permisos al compilador Gradle
+        working-directory: ./apps/web/android
+        run: chmod +x gradlew
+
+      - name: 🚀 Compilar el APK (Debug)
+        working-directory: ./apps/web/android
+        run: ./gradlew assembleDebug
+
+      - name: 💾 Subir el APK para descargarlo
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-android-apk
+          path: apps/web/android/app/build/outputs/apk/debug/app-debug.apk
