@@ -3,6 +3,7 @@ import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
+import { ChatAssistant } from '../components/ChatAssistant';
 
 interface Expense {
     id: string;
@@ -183,6 +184,7 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
             </main>
+            <ChatAssistant />
         </div>
     );
 };
