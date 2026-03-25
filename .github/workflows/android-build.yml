@@ -18,7 +18,7 @@ jobs:
       - name: ⚙️ Configurar Node.js (Para Vite y Capacitor)
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Usa la versión de Node de tu PC
+          node-version: '22' # Usa la versión de Node de tu PC
 
       - name: 📦 Instalar dependencias del frontend
         working-directory: ./apps/web
