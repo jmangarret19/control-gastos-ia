@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ControlGastos</string>
+    <string name="title_activity_main">ControlGastos</string>
+    <string name="package_name">com.jmangarret.controlgastos</string>
+    <string name="custom_url_scheme">com.jmangarret.controlgastos</string>
+</resources>
