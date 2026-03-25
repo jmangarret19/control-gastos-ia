@@ -12,6 +12,7 @@
   "dependencies": {
     "@capacitor/android": "^8.2.0",
     "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0",
     "axios": "^1.6.8",
     "i18next": "^25.7.3",
     "react": "^18.2.0",
