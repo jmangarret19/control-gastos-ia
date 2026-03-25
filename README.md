@@ -230,4 +230,12 @@ This project is licensed under the MIT License.
 
 ---
 
+## 📱 Mobile Supported (Capacitor)
+This project is fully ready for mobile using **Capacitor**.
+- **Android**: APKs are automatically generated using GitHub Actions.
+- **iOS**: Ready for Xcode compilation.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for mobile build details.
+
+---
+
 **Made by jmangarret19** | [GitHub Repo](https://github.com/jmangarret19/control-gastos-ia)

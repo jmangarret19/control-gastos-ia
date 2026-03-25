@@ -245,3 +245,20 @@ If you encounter issues:
 2. Review environment variables
 3. Ensure all services are running
 4. Check GitHub Actions (if configured) for CI/CD errors
+
+---
+
+## 📱 Mobile Apps (Capacitor & GitHub Actions)
+
+The project includes an automated setup to build the web application into native Android and iOS apps using **Capacitor** and **GitHub Actions**.
+
+### Android APK Generation
+1. Any push to `main` branch or manual trigger of the **Generar APK de Android** workflow will build the app.
+2. Go to the "Actions" tab in GitHub.
+3. Click on the completed workflow run.
+4. Download the `app-android-apk` artifact at the bottom to install on your Android device.
+
+### iOS App Generation
+1. The **Construir App iOS** workflow will compile the iOS application in a macOS environment.
+2. Note that creating an installable `.ipa` file for real iOS devices requires a paid Apple Developer Account for code signing.
+3. To test locally for free, you need a Mac. Run `npx cap open ios` and run it on your device using Xcode with a free Apple ID.

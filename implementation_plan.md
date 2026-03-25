@@ -246,3 +246,10 @@ Both Vercel and Render will auto-deploy changes from `main` branch.
 - **Exportación de Datos**: Descarga de reportes en CSV y PDF.
 - **Búsqueda Avanzada**: Filtros potentes por rango de fechas y descripción.
 - **Adjuntar Recibos**: Subida de imágenes de comprobantes.
+
+---
+
+### 📱 Phase 7: Mobile Integration (Capacitor)
+- **Status**: Completado ✅ 
+- **Android**: Configuración nativa añadida y workflow CI de GitHub Actions listo para generar `.apk`.
+- **iOS**: Configuración base de Capacitor lista, compilación de GitHub Actions automatizada.
