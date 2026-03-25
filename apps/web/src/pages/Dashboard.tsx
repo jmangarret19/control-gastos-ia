@@ -3,6 +3,7 @@ import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
+import { useFontSize, FontSize } from '../context/FontSizeContext';
 import { ChatAssistant } from '../components/ChatAssistant';
 
 interface Expense {
@@ -20,6 +21,7 @@ const Dashboard: React.FC = () => {
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
     const { t, i18n } = useTranslation();
     const { theme, setTheme } = useTheme();
+    const { fontSize, setFontSize } = useFontSize();
 
     const fetchExpenses = async () => {
         try {
@@ -64,6 +66,17 @@ const Dashboard: React.FC = () => {
                 <h1 className="text-xl font-bold text-[var(--text-base)] hidden md:block">{t('dashboard.title')}</h1>
                 <div className="flex items-center gap-4 ml-auto">
                     <span className="text-[var(--text-muted)] text-sm hidden sm:inline">{t('common.welcome', { name: user?.name })}</span>
+
+                    <select
+                        onChange={(e) => setFontSize(e.target.value as FontSize)}
+                        value={fontSize}
+                        className="px-2 py-1 rounded bg-[var(--bg-card)] text-[var(--text-base)] border border-[var(--border-color)] focus:ring-2 focus:ring-[var(--primary)] text-sm"
+                    >
+                        <option value="small10">Aa (Muy Pequeño)</option>
+                        <option value="small">Aa (Pequeño)</option>
+                        <option value="medium">Aa (Normal)</option>
+                        <option value="large">Aa (Grande)</option>
+                    </select>
 
                     <select
                         onChange={(e) => {

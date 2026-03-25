@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
+import { FontSizeProvider } from './context/FontSizeContext';
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
     const { isAuthenticated } = useAuth();
@@ -28,11 +29,13 @@ const AppRoutes = () => {
 function App() {
     return (
         <ThemeProvider>
-            <AuthProvider>
-                <Router>
-                    <AppRoutes />
-                </Router>
-            </AuthProvider>
+            <FontSizeProvider>
+                <AuthProvider>
+                    <Router>
+                        <AppRoutes />
+                    </Router>
+                </AuthProvider>
+            </FontSizeProvider>
         </ThemeProvider>
     );
 }

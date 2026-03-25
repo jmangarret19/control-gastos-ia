@@ -4,6 +4,7 @@ import api from '../services/api';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
+import { useFontSize, FontSize } from '../context/FontSizeContext';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ const Login: React.FC = () => {
     const [error, setError] = useState('');
     const { t, i18n } = useTranslation();
     const { theme, setTheme } = useTheme();
+    const { fontSize, setFontSize } = useFontSize();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -28,6 +30,16 @@ const Login: React.FC = () => {
     return (
         <div className="min-h-screen flex items-center justify-center transition-colors duration-300 bg-[var(--bg-base)] text-[var(--text-base)]">
             <div className="absolute top-4 right-4 flex gap-4">
+                <select
+                    onChange={(e) => setFontSize(e.target.value as FontSize)}
+                    value={fontSize}
+                    className="px-3 py-1 rounded bg-[var(--bg-card)] text-[var(--text-base)] border border-[var(--border-color)] focus:ring-2 focus:ring-[var(--primary)]"
+                >
+                    <option value="small10">Aa (Muy Pequeño)</option>
+                    <option value="small">Aa (Pequeño)</option>
+                    <option value="medium">Aa (Normal)</option>
+                    <option value="large">Aa (Grande)</option>
+                </select>
                 <select
                     onChange={(e) => {
                         // Cast string to Theme type safely
