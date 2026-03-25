@@ -11,8 +11,8 @@ export class ExpenseService {
         });
     }
 
-    async getUserExpenses(userId: string): Promise<Expense[]> {
-        return this.expenseRepository.findAllByUserId(userId);
+    async getUserExpenses(userId: string, startDate?: Date, endDate?: Date): Promise<Expense[]> {
+        return this.expenseRepository.findAllByUserId(userId, startDate, endDate);
     }
 
     async deleteExpense(userId: string, expenseId: string): Promise<void> {

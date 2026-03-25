@@ -9,9 +9,17 @@ export class PrismaExpenseRepository implements IExpenseRepository {
         });
     }
 
-    async findAllByUserId(userId: string): Promise<Expense[]> {
+    async findAllByUserId(userId: string, startDate?: Date, endDate?: Date): Promise<Expense[]> {
+        const whereClause: any = { userId };
+        
+        if (startDate || endDate) {
+            whereClause.date = {};
+            if (startDate) whereClause.date.gte = startDate;
+            if (endDate) whereClause.date.lte = endDate;
+        }
+
         return prisma.expense.findMany({
-            where: { userId },
+            where: whereClause,
             orderBy: { date: 'desc' }
         });
     }

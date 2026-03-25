@@ -8,7 +8,7 @@ export interface IUserRepository {
 
 export interface IExpenseRepository {
     create(expense: Omit<Expense, 'id' | 'createdAt' | 'updatedAt'>): Promise<Expense>;
-    findAllByUserId(userId: string): Promise<Expense[]>;
+    findAllByUserId(userId: string, startDate?: Date, endDate?: Date): Promise<Expense[]>;
     findById(id: string): Promise<Expense | null>;
     update(id: string, expense: Partial<Expense>): Promise<Expense>;
     delete(id: string): Promise<void>;
