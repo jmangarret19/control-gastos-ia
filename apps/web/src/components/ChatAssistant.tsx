@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import api from '../services/api';
 
 interface Message {
@@ -9,7 +9,7 @@ interface Message {
 }
 
 export const ChatAssistant: React.FC = () => {
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
     const [messages, setMessages] = useState<Message[]>([
         { id: 'initial', text: '¡Hola! Soy tu asistente financiero. Puedes preguntarme sobre tus gastos, por ejemplo: "¿Cuánto gasté en comida este mes?".', sender: 'ai' }
     ]);
@@ -38,10 +38,10 @@ export const ChatAssistant: React.FC = () => {
 
         try {
             const response = await api.post('/chat', { question: newUserMsg.text });
-            const newAiMsg: Message = { 
-                id: (Date.now() + 1).toString(), 
-                text: response.data.answer, 
-                sender: 'ai' 
+            const newAiMsg: Message = {
+                id: (Date.now() + 1).toString(),
+                text: response.data.answer,
+                sender: 'ai'
             };
             setMessages(prev => [...prev, newAiMsg]);
         } catch (error) {
@@ -63,7 +63,7 @@ export const ChatAssistant: React.FC = () => {
 
     if (!isOpen) {
         return (
-            <button 
+            <button
                 onClick={() => setIsOpen(true)}
                 className="fixed bottom-6 right-6 p-4 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition"
             >
@@ -73,8 +73,8 @@ export const ChatAssistant: React.FC = () => {
     }
 
     return (
-        <div className="fixed bottom-6 right-6 w-80 sm:w-96 rounded-2xl shadow-2xl bg-white border border-gray-200 flex flex-col overflow-hidden" 
-             style={{ height: '500px', maxHeight: '80vh' }}>
+        <div className="fixed bottom-6 right-6 w-80 sm:w-96 rounded-2xl shadow-2xl bg-white border border-gray-200 flex flex-col overflow-hidden"
+            style={{ height: '500px', maxHeight: '80vh' }}>
             {/* Header */}
             <div className="bg-blue-600 text-white p-4 flex justify-between items-center">
                 <h3 className="font-semibold">Asistente Financiero 🤖</h3>
@@ -86,13 +86,12 @@ export const ChatAssistant: React.FC = () => {
             {/* Chat Area */}
             <div className="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-3">
                 {messages.map((msg) => (
-                    <div 
-                        key={msg.id} 
-                        className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                            msg.sender === 'user' 
-                            ? 'bg-blue-600 text-white self-end rounded-br-none' 
+                    <div
+                        key={msg.id}
+                        className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.sender === 'user'
+                            ? 'bg-blue-600 text-white self-end rounded-br-none'
                             : 'bg-white text-gray-800 border border-gray-200 self-start rounded-bl-none whitespace-pre-wrap'
-                        }`}
+                            }`}
                     >
                         {msg.text}
                     </div>
@@ -107,7 +106,7 @@ export const ChatAssistant: React.FC = () => {
 
             {/* Input Area */}
             <div className="p-3 bg-white border-t border-gray-200 flex gap-2">
-                <input 
+                <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
@@ -116,7 +115,7 @@ export const ChatAssistant: React.FC = () => {
                     placeholder="Escribe tu pregunta..."
                     disabled={isLoading}
                 />
-                <button 
+                <button
                     onClick={handleSendMessage}
                     disabled={isLoading || !inputValue.trim()}
                     className="bg-blue-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center disabled:opacity-50"
